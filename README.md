@@ -84,4 +84,4 @@ Note that all the challenge that are ~~stricken through~~ do not have proper wri
 ### ❤️ With love by the CSCBE team ❤️
 |||||
 |-|-|-|-|
-|Jeroen | Julian | Théo | Maxime|
+| 🐼 Jeroen | 🥷Julian | 👒Théo | 🐈Maxime|
