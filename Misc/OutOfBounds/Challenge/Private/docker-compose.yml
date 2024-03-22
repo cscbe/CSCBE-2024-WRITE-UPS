@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  # nginx:
+  #   build: nginx
+  #   restart: unless-stopped
+  #   cap_add:
+  #     - NET_ADMIN
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #     - "443:443/udp"
+  app:
+    build: server
+    restart: unless-stopped
+    init: true
+    cap_add:
+        - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"

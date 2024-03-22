@@ -1,0 +1,37 @@
+name: "Yet Another ISO"
+author: Yannis Kireche
+category: Forensics
+description: |-
+  The CEO of the company "Societerre" Andrew, harbors suspicions regarding the productivity of two employees, Sam and Jacob, suspecting that they might be slacking off and neglecting their important duties. In response, Andrew asked the IT team to monitor their network traffic.
+  As the forensic investigator for the company, you have been tasked to analyze the captured network data to uncover any evidence that might support Andrew's suspicions.
+
+  (This challenge was made with assistance from Antoine T.)
+tags:
+  - Medium
+
+protocol: null
+
+files:
+  - Challenge/Public/captured_data.pcapng
+  
+healthcheck: null
+
+topics:
+  - memory forensics
+
+flags:
+  - "CSC{3ncrypt_Y0ur_V0!P}"
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

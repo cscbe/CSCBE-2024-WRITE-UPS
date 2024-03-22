@@ -1,0 +1,19 @@
+$ORIGIN .
+$TTL 86400    ; 1 day
+thisistheflag.be.           IN SOA      ns1.thisistheflag.be. what.about.txt. (
+                17         ; serial
+                3600       ; refresh (1 hour)
+                1800       ; retry (30 minutes)
+                2419200    ; expire (4 weeks)
+                600        ; minimum (10 minutes)
+                )
+            NS    ns1.thisistheflag.be.
+
+$ORIGIN .
+$TTL 86400 
+
+thisistheflag.be.   A       10.5.0.5
+thisistheflag.be.   TXT "CSC{youfoundtheflag}"
+
+www.thisistheflag.be.    A      172.217.168.227
+

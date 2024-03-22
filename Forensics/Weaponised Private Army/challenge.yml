@@ -1,0 +1,55 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Weaponized Private Army"
+author: "Théo Davreux"
+category: Forensics
+description: |-
+  Mr Prime Minister!
+  We've intercepted the communications of a dangerous PMC owner, one of our agents was on his flight, and he appeared to access secret plans for his "Inner Hell" offshore military base.
+  Everyone here at the agency has tried to decrypt what our agent recovered, but none have managed to recover the secret plans...
+
+  We've heard you have 1337 H4XX0R 5K1LL5, you have to help us, like a true Patriot!
+tags:
+  - Easy
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/challenge.cap
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - WPA2 Cracking
+
+flags:
+  # A static case sensitive flag
+  - CSC{protected_access_unless_you_got_ears}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

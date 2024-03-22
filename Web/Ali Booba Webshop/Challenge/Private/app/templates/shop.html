@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+        function redirect(location) {
+            window.location.href=location;
+        };
+
+        function changeCurrency(currency) {
+            // Send the selected currency to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/currency", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    location.reload();
+                }
+            };
+            xhr.send(JSON.stringify({ currency: currency }));
+        }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Articles</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/home" class="nav-link px-2 link-secondary">Home</a></li>
+              <li><a href="/shop" class="nav-link px-2 link-dark">Shop</a></li>
+              <li><a href="/orders" class="nav-link px-2 link-dark">Orders</a></li>
+              <li><a href="/cart" class="nav-link px-2 link-dark">Cart</a></li>
+            </ul>
+            {% if auth != True %}
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-primary me-2" onclick="redirect('/login')">Login</button>
+                <button type="button" class="btn btn-primary" onclick="redirect('/register')">Sign-up</button>
+            </div>
+            {% else %}
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-danger me-2" onclick="redirect('/logout')">Logout</button>
+                <span class="balance">Balance: {{balance}} {{currency}}</span>
+            </div> 
+            {% endif %}
+              
+        </header>
+        <h2 class="text-center mb-4">Latest Articles</h2>
+        <div class="col-md-4 mb-4">
+            <label for="currency">Choose a currency</label>
+            <select id="currencySelect" class="form-select" name="currency" onchange="changeCurrency(this.value)">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+
+        <div class="row">
+            {% for item in items %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/static/img/{{item.image}}" class="card-img-top" alt="Article 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <span class="price text-end">{{item.value}} {{currency}}</span>
+                        <p class="card-text">{{item.description}}</p>
+                        <form id=addToCartForm action=/cart/add method=POST>
+                            <input required type=hidden name=productId value={{item.id}}>
+                            <button type=submit class="btn btn-primary">Add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Upcoming Badminton Competitions</h1>
+    <div class="card-container">
+        {% for competition in competitions %}
+        <div class="card mb-4 mx-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ competition.name }}</h5>
+                <p class="card-text">
+                    <strong>Date:</strong> {{ competition.date }}<br>
+                    <strong>Location:</strong> {{ competition.location }}<br>
+                    <strong>Description:</strong> {{ competition.description }}
+                </p>
+                <a href="#" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

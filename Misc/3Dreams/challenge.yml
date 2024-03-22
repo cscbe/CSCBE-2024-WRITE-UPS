@@ -1,0 +1,30 @@
+name: "3Dreams"
+author: "Sébastien Martinez Balbuena"
+category: Misc
+description: |-
+  Did I tell you about this dream I made last night ?
+  It was so weird and erratic...
+  And there was this voice saying "the flag is under your nose"...  
+tags:
+  - Easy
+protocol: http
+files: null
+topics:
+  - ThreeJS
+  - GLTF file format  
+
+flags:
+  - CSC_NO_MY_DREAM_WAS_NOT_LAGGY
+  
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##

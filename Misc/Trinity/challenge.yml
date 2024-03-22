@@ -1,0 +1,66 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Trinity"
+author: "Jonah Bellemans"
+category: Misc
+description: |-
+  Operative, we need your help.
+  One of our field agents has been made and fled the safehouse before we could safely extract them from enemy territory.
+  Currently, we have no idea where they could've gone, but we are fearing the worst.
+  To make matters worse, we were expecting a vital communication from them containing the password to open a file with nuclear launch codes.
+  If we cannot retrieve this message, well... Strictly speaking, you don't have the needed security clearance to know what would happen *exactly*, but you're a smart cookie.
+  I'm sure you can put two and two together. It starts with the letter "A" and rhymes with "Barmageddon".
+  We have one last hope, however.
+  Our black ops team has retrieved the laptop our field agent was using and was still hidden in the safehouse, from which they could recover a single video file.
+  Perhaps it contains the message we so desperately need?
+tags:
+  - Hard
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/oppie.mp4
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: null
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - audio spectrogram steganography
+  - vigenere cipher
+
+flags:
+  # A static case sensitive flag
+  - CSC{ASTR4NGEG4METHEONLYWINNINGMOVE1SNOTTOPL4Y}
+  # A static case sensitive flag created with a dictionary
+  #- { type: "static", content: "flag{wat}" }
+  # A static case insensitive flag
+  #- { type: "static", content: "flag{wat}", data: "case_insensitive" }
+  # A regex case insensitive flag
+  #- { type: "regex", content: "(.*)STUFF(.*)", data: "case_insensitive" }
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

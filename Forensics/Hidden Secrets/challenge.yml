@@ -1,0 +1,60 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Hidden Secrets"
+author: "Jonas Van Wilder"
+category: Forensics
+description: |-
+  In the last week we have been analyzing all data that was collected from the workstation of a suspicious individual in the context of an investigation we are assisting on.
+  We are still looking for some sensitive data that might be crucial for the investigation.
+  Unfortunately, our forensic experts are not available at the moment and we need to know more about a suspicious zip file.
+  The zip file is encrypted, but we already managed to crack it by blasting rockyou on it.
+  However, we are none the wiser and really need results, the sooner the better.
+  Can you assist and have a look?
+  
+  The password is 'hiddensecrets'.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/unknown.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: null
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - file forensics
+  - programming
+  - keepass brute force
+  - base 62 decode
+
+flags:
+  # A static case sensitive flag
+  - CSC{Base64IsTooMainstreamAmirite?}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

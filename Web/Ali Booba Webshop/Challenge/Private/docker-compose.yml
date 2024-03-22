@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    image: python:3.8-slim-buster
+    ports:
+      - "80:80"
+    environment:
+      - flag="CSC{1nf1n1t3_sparkling_w4t3r}"
+    volumes:
+      - ./app:/app
+      - ./database.db:/var/www/database.db
+      - ./requirements.txt:/var/www/requirements.txt
+    command: sh -c "chmod 777 /var/www/database.db && cd /app && pip install -r /var/www/requirements.txt && python3 -m flask run --host=0.0.0.0 --port=80"

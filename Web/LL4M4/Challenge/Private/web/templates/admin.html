@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hacking Services</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    </head>
+    <body class="py-20 px-60 text-center">
+        <h1>Welcome Admin ! </h1>
+        {% for message in messages %}
+            <div>{{ message.content | safe }}</div>
+        {% endfor %}
+    </body>
+</html>
+        
+            
+    </body>
+</html>

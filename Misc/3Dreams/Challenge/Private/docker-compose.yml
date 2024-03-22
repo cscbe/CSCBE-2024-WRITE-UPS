@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    entrypoint: ["npx","vite"]
+    ports:
+      - "80:80"
+

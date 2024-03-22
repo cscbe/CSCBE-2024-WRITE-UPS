@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="w-80 center">
+        <div class="page-header d-flex justify-content-center mb-4">
+            <h1>Note Shared !</h1>
+        </div>
+        {% if custom_error %}
+        <div class="alert alert-danger" role="alert">
+            {{ custom_error }}
+        </div>
+        {% else %}
+        <div class="alert alert-success" role="alert">
+            Your note ({{ uuid }}) has been shared with {{ username }}.
+        </div>
+        {% endif %}
+
+        <button class="btn btn-primary btn-block" onclick="location.href='{{ url_for('view_note', uuid=uuid) }}'">Go back</button>
+    </div>
+</div>
+
+{% endblock %}

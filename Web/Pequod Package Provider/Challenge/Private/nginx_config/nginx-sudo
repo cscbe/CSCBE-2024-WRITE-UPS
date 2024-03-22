@@ -1,0 +1,1 @@
+gunicornrunner ALL=(root:root) NOPASSWD: /usr/sbin/nginx ""

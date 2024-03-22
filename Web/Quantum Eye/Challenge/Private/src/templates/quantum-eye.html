@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row mt-5 justify-content-md-center">
+    <div class="col-md-auto text-center">
+      <h1 class="display-3 mb-2">Quantum Eye</h1>
+      <p>With a quantum eye, you can see past the dark frontiers. Here is only a preview of the future.</p>
+      <form id="urlForm" class="form-group">
+        <div class="input-group mb-3">
+          <input type="text" id="url" name="url" class="form-control" placeholder="http://what.do.you.want.to.see" aria-describedby="button-addon2">
+          <button class="btn btn-primary" type="submit" id="button-addon2">Button</button>
+        </div>
+        <small id="passwordHelpBlock" class="form-text text-muted">
+          Note: you can only see the <a href="https://cybersecuritychallenge.be/" target="_blank">cybersecuritychallenge.be</a> website in this preview.
+        </small>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-5 justify-content-md-center">
+      <img id="screenshot" height="400px" style="z-index: 10; object-fit: contain" src="{{ url_for('static', filename='placeholder.png') }}">
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

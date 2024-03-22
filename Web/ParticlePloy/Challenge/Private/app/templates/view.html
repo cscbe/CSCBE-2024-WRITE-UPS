@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Particles!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='simple.min.css') }}" nonce="{{ csp_nonce() }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" nonce="{{ csp_nonce() }}">
+    <script src="{{ url_for('static', filename='particles.min.js') }}" nonce="{{ csp_nonce() }}"></script>
+</head>
+<body>
+<div style="display:none" id="custom_particles">/particles/{{uuid}}/custom_particle_config.js</div>
+
+<h1>Particles!</h1>
+<p>Your personal particle creation: {{ name | safe }}</p>
+<p class="notice">
+    Please save this link if you want to share your cool creation with others.
+</p>
+<canvas class="background"></canvas>
+
+<script nonce="{{ csp_nonce() }}">
+    let script = document.createElement('script');
+    script.src = document.getElementById('custom_particles').innerText;
+    document.body.appendChild(script);
+</script>
+</body>
+</html>

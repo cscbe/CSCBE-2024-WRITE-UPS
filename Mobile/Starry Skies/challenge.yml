@@ -1,0 +1,60 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Starry Skies"
+author: "Théo Davreux"
+category: Mobile
+description: |-
+  We've barely caught the technomancer, and he's already escaped!
+  We're already planning on raiding his Observatory again, but we need a flag to get in.
+
+  It seems that he's doubled down on his app's security, but he seemingly ignored performance in the meantime, what a stuttery mess!
+  We've done all of our negociation techniques, but the program refuses to cooperate once again!
+  Can you pick the pocket of this evil program, and give us the key to the technomancer's Observatory?
+tags:
+  - Hard
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: https
+
+ports:
+  - 443tcp
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/app-profile.apk
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - debug in production
+  - instrumentation
+  - memory dump
+
+flags:
+  - CSC{pr0f1l3_Th1S_You_fi11hy_c45UA7}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

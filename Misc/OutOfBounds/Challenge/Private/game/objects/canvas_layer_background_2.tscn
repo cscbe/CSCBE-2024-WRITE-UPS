@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://b517oe2bplp3e"]
+
+[ext_resource type="Texture2D" uid="uid://ckm04bqaab4xd" path="res://assets/Mossy_Tileset/Mossy - BackgroundDecoration.png" id="1_s4re8"]
+[ext_resource type="Shader" path="res://objects/BlurShader.gdshader" id="2_nucwu"]
+[ext_resource type="Texture2D" uid="uid://ck6f4yksbe1xg" path="res://assets/white.png" id="3_ocm3g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_82cs7"]
+load_path = "res://.godot/imported/Mossy - MossyHills.png-13ef7bfb55c7517f72d1842ed14e5bed.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbcw8"]
+atlas = SubResource("CompressedTexture2D_82cs7")
+region = Rect2(63, 1510, 1324, 451)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h6wn"]
+atlas = SubResource("CompressedTexture2D_82cs7")
+region = Rect2(647, 616, 1239, 857)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j1b5b"]
+load_path = "res://.godot/imported/Mossy - BackgroundDecoration.png-26a568a8b23e799cc63371df73d514ea.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6exl"]
+shader = ExtResource("2_nucwu")
+shader_parameter/blur_type = 0
+shader_parameter/blur_amount = 13
+shader_parameter/blur_radius = 1.0
+shader_parameter/blur_direction = Vector2(1, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.95, 1)
+
+[node name="background2" type="Node2D" parent="ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.403922)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer/background2"]
+position = Vector2(2933.75, 1088.75)
+texture = SubResource("AtlasTexture_dbcw8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer/background2"]
+position = Vector2(5216.25, 3.8147e-05)
+texture = SubResource("AtlasTexture_3h6wn")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/background2"]
+texture = ExtResource("1_s4re8")
+region_enabled = true
+region_rect = Rect2(1194, 46, 1034, 2344)
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer/background2"]
+position = Vector2(4640, 1600)
+texture = ExtResource("1_s4re8")
+region_enabled = true
+region_rect = Rect2(2396, 2361, 1686, 1725)
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer/background2"]
+position = Vector2(2400, 0)
+rotation = 3.14159
+texture = SubResource("CompressedTexture2D_j1b5b")
+region_enabled = true
+region_rect = Rect2(1215, 2610, 922, 644)
+
+[node name="BlurBackground2" type="Sprite2D" parent="ParallaxLayer/background2"]
+top_level = true
+light_mask = 0
+material = SubResource("ShaderMaterial_g6exl")
+position = Vector2(2067, 467.001)
+scale = Vector2(40.7911, 24.2933)
+texture = ExtResource("3_ocm3g")

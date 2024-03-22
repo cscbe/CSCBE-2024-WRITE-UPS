@@ -1,0 +1,59 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "ThisIsTheFlag Scavenger Hunt"
+author: "DNSBelgium"
+category: Web
+description: |-
+  Humpty Dumpty built an tunnel so fine, securing his connections, line by line. 
+  But with one mistake, he took a great fall, And "the server below" couldn't protect him at all.
+  All the king's cryptographers and all the king's geeks, Tried to find the lost secret, despite the leaks. 
+  But with thisistheflagdotbe denied and data adrift, Poor Humpty remained in a security rift.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: tcp
+
+ports:
+  - 53udp
+  - 22tcp
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files: null
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - information disclosure
+  - buffer overflow
+  - memory forensics
+
+flags:
+  - CSC{xn--80agbesolha6bhblgn}
+
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

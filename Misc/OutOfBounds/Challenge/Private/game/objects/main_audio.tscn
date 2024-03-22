@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b136tf5akyq78"]
+
+[ext_resource type="AudioStream" uid="uid://ce1cnkalobyrg" path="res://assets/vgm-atmospheric-air.mp3" id="1_skk6c"]
+[ext_resource type="Script" path="res://objects/main_audio.gd" id="2_p2rvd"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_skk6c")
+autoplay = true
+script = ExtResource("2_p2rvd")

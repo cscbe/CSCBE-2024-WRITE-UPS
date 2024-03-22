@@ -1,0 +1,42 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Capture The Flag"
+author: "Alex Van Mechelen"
+category: Misc
+description: |-
+          Look, if you had one shot or one opportunity
+          To seize everything you ever wanted in one moment
+          Would you capture it or just let it slip?
+          [Eminem, 2002]
+
+          Don't worry, for this challenge you can capture it even when you let it slip.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: tcp
+
+ports:
+  - 1339tcp
+
+flags:
+  - CSC{Wh1sp3ring_fl4gs_w1th_High_pri0r1ty}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

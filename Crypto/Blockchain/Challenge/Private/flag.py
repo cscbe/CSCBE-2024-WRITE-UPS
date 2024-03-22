@@ -1,0 +1,1 @@
+FLAG = "CSC{crYPtO_M3ANs_CRYPTo6r@pHy}"

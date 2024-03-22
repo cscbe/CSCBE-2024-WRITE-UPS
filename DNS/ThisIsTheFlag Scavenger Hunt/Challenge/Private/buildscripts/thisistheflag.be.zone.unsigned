@@ -1,0 +1,33 @@
+$ORIGIN .
+$TTL 86400    ; 1 day
+thisistheflag.be.           IN SOA      ns1.thisistheflag.be. what.about.srv. (
+                17         ; serial
+                3600       ; refresh (1 hour)
+                1800       ; retry (30 minutes)
+                2419200    ; expire (4 weeks)
+                600        ; minimum (10 minutes)
+                )
+            NS    ns1.thisistheflag.be.
+
+$ORIGIN .
+$TTL 86400 
+
+thisistheflag.be.   A       10.5.0.5
+901c3e6681dfc7f1090977e9d2c15cadd69d5b80.thisistheflag.be.   TXT "CSC{xn--80agbesolha6bhblgn}"
+
+www.thisistheflag.be.    A      172.217.168.227
+ns1.thisistheflag.be.     A      172.217.168.227
+
+; _service._proto.name.  TTL   class SRV priority weight port target.
+thisistheflag.be.   86400 IN    SRV 10       60     22 ssh.thisistheflag.be.
+
+; ssh-keygen -r
+ssh.thisistheflag.be. SSHFP 1 1 3704f069d4e54d93d72156085942e5c327731eaa
+ssh.thisistheflag.be. SSHFP 1 2 065c885baf91069d6b291d453a08318b1d2a31415c5af2d3c6fa85324fe1e5f9
+ssh.thisistheflag.be. SSHFP 3 1 901c3e6681dfc7f1090977e9d2c15cadd69d5b80
+ssh.thisistheflag.be. SSHFP 3 2 68b8813affa2cee1d727c3c9e92a6ee63fd3a7330c99e4a7bb869d4ecabd6b8c
+ssh.thisistheflag.be. SSHFP 4 1 327692c38caae3a0ffc29869cb0bea522b60ed23
+ssh.thisistheflag.be. SSHFP 4 2 82d76fdb632a122f12b3dffa0bbd2715727f44aff86568e3fd3f1d4eeab2de70
+
+
+

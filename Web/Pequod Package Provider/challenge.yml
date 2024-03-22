@@ -1,0 +1,56 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Pequod Package Provider"
+author: "Théo Davreux"
+category: Web
+description: |-
+  Mr Ahab is positively glowing! Finally, the package provider for the Nantucket Operating Platform is ready for release.
+
+  Ishmael, a junior in the company, doesn't trust that everything is fine, and yet nobody wants to listen to him.
+  He reached out to you for a last minute security assessment, can you save Mocha Richard LTD. from a potential intrusion?
+tags:
+  - Hard
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: http
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/challenge.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.py
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - JWK injection
+  - File injection
+  - Polymorphic files
+
+flags:
+  # A static case sensitive flag
+  - CSC{M0by_D1ck_W1ll_347_17_411}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

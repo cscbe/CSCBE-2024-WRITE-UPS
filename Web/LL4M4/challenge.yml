@@ -1,0 +1,32 @@
+name: "LL4M4"
+author: "Sébastien Martinez Balbuena"
+category: Web
+description: |-
+  I am the best h4ck3r but recently I have been hacked.
+  Since AI is the best thing ever, I am now using it to protect myself.
+  No f00l can hack me now. 
+tags:
+  - Medium
+protocol: http
+files:
+  - Challenge/Public/challenge.zip
+# healthcheck: ./Resources/exploit.(sh|py)
+topics:
+  - Large Language Models 
+  - XSS
+
+flags:
+  - CSC{I_thought_AI_would_s4v3_m3_fr0m_ev3ryth1ng}
+  
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##

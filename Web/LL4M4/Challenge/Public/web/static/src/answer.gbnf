@@ -1,0 +1,2 @@
+root ::= answer
+answer ::= "SAFE" |  "UNSAFE"

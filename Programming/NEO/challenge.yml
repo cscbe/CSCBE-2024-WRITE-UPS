@@ -1,0 +1,40 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "NEO"
+author: "Jules Oosterlynck"
+category: Programming
+description: |-
+  Are you the one?
+  Can you escape the code and see the Matrix?
+  Absolutely, Neo Sees It.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: tcp
+
+ports:
+  - 1338tcp
+
+flags:
+  - CSC{you_have_to_understand_most_people_are_not_ready_to_be_unplugged_35uf83js}
+
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

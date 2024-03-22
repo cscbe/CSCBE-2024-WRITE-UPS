@@ -1,0 +1,42 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Denial Of Service"
+author: "Alex Van Mechelen"
+category: Misc
+description: |-
+  My grandpa gave me this calculator application.
+  He told me he used this executable all the time to print out his precious flag.
+  I can't seem to find anything.
+  Must be a Denial Of Service.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/calc.exe
+
+flags:
+  - CSC{I_can_rUn_In_D0S_m0De!}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

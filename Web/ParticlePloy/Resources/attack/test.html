@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title></title></head>
+<body>
+<div style="display:none" id="custom" class="x">test</div>
+<!--<p>-->
+<!--&lt;!&ndash;    <div style="display:none" id="cdnDomain" class="x">Clobber</div>&ndash;&gt;-->
+
+<!--<html id="cdnDomain" class="x">clobbered</html>-->
+<!--<script>-->
+<!--alert(document.getElementById('cdnDomain').innerText); // Clobbered-->
+<!--alert(document.querySelector('.x').innerText); // Clobbered-->
+<!--</script>-->
+
+
+<!--<input type="hidden" id="a" value="normal">-->
+<!--<a id="a"><a id="a" name="value" href="clobbered"></a></a>-->
+<!--<a name="a" href="tst"></a>-->
+<!--<a id=x><a id=x name=y href="Clobbered">-->
+<!--<iframe id="a" src="https://d"></iframe>-->
+<!--<input  type="hidden" id="a" src="TEST">-->
+<!--<a id="cookie" href="clobber"></a>-->
+<html id="custom"></html>
+<!--<img id="cookie">-->
+<script>
+    cfg = "original"
+    // a = {src: "test"}
+    // let cookie = cookie || document.cookie
+    alert(document.cookie)
+    // alert(x.y)
+
+    // var s = document.createElement('script');
+    // let b = document.documentElement.getAttribute('baseURI');
+    // s.src = b + '/script.js';
+    // document.body.appendChild(s);
+</script>
+
+
+</body>
+</html>

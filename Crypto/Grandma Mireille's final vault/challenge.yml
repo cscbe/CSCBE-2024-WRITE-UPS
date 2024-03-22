@@ -1,0 +1,58 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Grandma Mireille's final vault"
+author: "Sander Van Dessel"
+category: Cryptography
+description: |-
+  Grandma Mireille loves to read books, not a month goes by when she does not have a new pile of books laying somewhere in her loving room.
+  While most of them are non-fiction, she sometimes is open to read fiction as well.
+  One of these rare occasions involved the works of Tolkien. She mainly started to read them because she is also very interested in languages (She often joined "Het Groot Dictee der Nederlandse Taal" and often had almost no mistakes),
+  and Tolkien is of course also a well known linguist who created multiple languages for his novels.
+  When I was recently searching for a clue of her second vault, I found some notes written in a strange language, accompanied by 20 beatifull rings.
+  Might these contain a hint to open her second vault ?
+tags:
+  - Hard
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/challenge.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - Metadata
+  - Language translation
+  - Secret sharing algorithm
+
+flags:
+  # A static case sensitive flag
+  - CSC{0ne_gr4ndma_2_rul3_th3m_4ll}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

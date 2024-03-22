@@ -1,0 +1,55 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Grandma Mireille's third vault"
+author: "Sander Van Dessel"
+category: Cryptography
+description: |-
+  Besides reading books, she also loved to look at the weather.
+  She even kept records of weather in Brussels since 1945 !
+  But, when I was looking at the data she noted down from 1970, there seemd to be some strange differences between her version and the official records.
+  Could this be another clue to find the rumoured grandparents' vault ?
+tags:
+  - Extreme
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/challenge.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - Cryptanalysis
+  - Data analysis
+
+flags:
+  # A static case sensitive flag
+  - CSC{I_Am_S1NGing_1N_Th3_V4Ul7}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

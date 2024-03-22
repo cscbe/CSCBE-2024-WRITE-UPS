@@ -1,0 +1,57 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Sili-con Carne"
+author: "Théo Davreux"
+category: Reversing
+description: |-
+  We found a delapidated laboratory under a decrepit restaurant kitchen, apparently formerly squatted by a long time POI.
+  It's got it all: rusty disks, destroyed computers, and contraband microcontrollers being manufactured.
+  We've been hoping to find this guy's password for ever, but he's always used his own designs to keep us off his chips.
+  And old laptop was amongst the rubble, but we only managed to extract a few files before it burst in flames, a bunch of source files, binaries, and one note.
+  Can you somehow find his password amongst all of this?
+tags:
+  - Extreme
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/recovered.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - reverse engineering
+  - exotic architectures
+  - programming
+  - virtual machine
+
+flags:
+  - CSC{ROASTEDCORN}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

@@ -1,0 +1,17 @@
+{
+    "name": "exploit",
+    "author": "Théo Davreux",
+    "version": "1.0.0",
+    "publisher": "Cybersecuritychallenge Belgium",
+    "actions": [],
+    "keys": [
+        {
+            "kty": "RSA",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "mykey",
+            "alg": "RS256",
+            "n": "vCU5bGz8hRSobAHoCyzep0g3nlgCA2Egfs3ecuGmRFFx4Rjs5e9WkUm9uZ6UnVIrnEfZSn0_3gileGGFvGFgxmPu2KkCplk5_7F90oNqjWkbIirsuNSrr7hbY3hTgSV7Cd-XsOrb2clM5Gl4MhUqyIDo2EK3poU-869UBAZEANS2TiIE5XJe02izWLnUM4268TMxh0neiSU6bbxWRCwgUHDaqKlULVNjfYO-fW1VZV7OCKDaL-k_HVsAkeXYmNY1-u5fe3e3WuVk0ISpxOCp9l-8ZCVZGPgPTbCABi8ZmYhHzfy7wgxwMhT4V036hD0WagdJQgalgGglkDmlhWTgyw"
+        }
+    ]
+}

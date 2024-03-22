@@ -1,0 +1,54 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Deduction Deduce"
+author: "Dries Boone"
+category: Forensics
+description: |-
+  A woman is sure she was hacked but our officers made a huge mistake when acquiring the evidences and most of it has been lost!
+  Only two configuration files and an extract of the Scheduled Tasks remains along with a copy of the interview conducted with the victim.
+  Can you make the correct assumptions and deduce which Scheduled Task is most likely responsible for the ongoing madness?
+tags:
+  - Easy
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/deduction_deduce.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: null
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - windows forensics
+  - logical thinking
+
+flags:
+  # A static case sensitive flag
+  - CSC{The_$reytsst_Dete35ive_Ty_l0v3}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

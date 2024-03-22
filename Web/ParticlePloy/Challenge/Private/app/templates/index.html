@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Particles!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='simple.min.css') }}" nonce="{{ csp_nonce() }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" nonce="{{ csp_nonce() }}">
+    <script src="{{ url_for('static', filename='particles.min.js') }}" nonce="{{ csp_nonce() }}"></script>
+</head>
+<body>
+
+<h1>Particles!</h1>
+<p>Particles are awesome, and we think everyone should have some for free.</p>
+<p>Premium particles are available for the low cost of 1 Club Mate which may be send by Pigeon post to the address:
+    <code>202 Mystic Unicorn Avenue, Rainbow Ridge, Dreamland 40404</code>.</p>
+
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <h3>Particle configurator</h3>
+    <p>Create your own particle visualization and share with your friends!</p>
+    <dl>
+        {{ render_field(form.name) }}
+        {{ render_field(form.maxParticles) }}
+        {{ render_field(form.sizeVariations) }}
+        {{ render_field(form.speed) }}
+        {{ render_field(form.color) }}
+        {{ render_field(form.minDistance) }}
+        {{ render_field(form.connectParticles) }}
+    </dl>
+    <p><input type=submit value=Register>
+    <p>Note: saved configurations will regularly be reviewed by admins. Ugly configurations will be removed without
+        notice.</p>
+</form>
+
+<canvas class="background"></canvas>
+
+<script nonce="{{ csp_nonce() }}">
+    // Load the default particle set
+    let script = document.createElement('script');
+    script.src = '/static/default_particles.js';
+    document.body.appendChild(script);
+</script>
+</body>
+</html>

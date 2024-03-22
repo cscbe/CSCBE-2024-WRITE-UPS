@@ -1,0 +1,44 @@
+
+name: "ParticlePloy"
+author: "Maxime Bloch"
+category: Web
+description: |-
+  A platform where you can create some nice particle visualizations.
+  Check it out but keep aware to make them visually appealing.
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: http
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/ParticlePloy.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+# healthcheck: TODO # ./Resources/exploit.(sh|py)
+
+# TODO
+flags:
+  # A static case sensitive flag
+  - CSC{In_7HE_d3PtH_Of_tHe_d0m_name5_HOld_p0WeR}
+
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

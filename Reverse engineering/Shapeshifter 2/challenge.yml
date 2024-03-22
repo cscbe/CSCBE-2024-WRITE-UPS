@@ -1,0 +1,42 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Shapeshifter 2"
+author: "Alex Van Mechelen"
+category: Reversing
+description: |-
+  The first shapeshifter binary soon learned it was too easy for reversers like you to figure out its original message.
+  That's why it evolved and protected itself even more, to prevent anyone from finding the flag after its first execution.
+  I really needed that flag, so I quickly executed the binary while it was still possible. ...but now the flag is gone.
+  Legend says only 1337 reversers can figure out what the binary used to print.
+tags:
+  - Extreme
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/legendary_binary_2
+
+flags:
+  - CSC{M4st3R1ng_s0m3_P0lymOrph!c_c0de_4_fUn}
+## END ALLOWED EDIT ##
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

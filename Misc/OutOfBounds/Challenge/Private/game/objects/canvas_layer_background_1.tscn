@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=3 uid="uid://lm2ou1of0n7v"]
+
+[ext_resource type="Shader" path="res://scenes/wind_sway.gdshader" id="1_rxh2h"]
+[ext_resource type="Texture2D" uid="uid://77xjhmuj1mu" path="res://assets/Mossy_Tileset/Mossy - Hanging Plants.png" id="2_1ntor"]
+[ext_resource type="Texture2D" uid="uid://ckm04bqaab4xd" path="res://assets/Mossy_Tileset/Mossy - BackgroundDecoration.png" id="3_5d668"]
+[ext_resource type="Texture2D" uid="uid://cqvmjsghipjmf" path="res://assets/Mossy_Tileset/Mossy - Decorations&Hazards.png" id="4_lfpip"]
+[ext_resource type="Shader" path="res://objects/BlurShader.gdshader" id="5_27iqn"]
+[ext_resource type="Texture2D" uid="uid://ck6f4yksbe1xg" path="res://assets/white.png" id="6_m4r5j"]
+[ext_resource type="Shader" path="res://scenes/godrays.gdshader" id="7_8jnbv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fspi5"]
+blend_mode = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_82cs7"]
+load_path = "res://.godot/imported/Mossy - MossyHills.png-13ef7bfb55c7517f72d1842ed14e5bed.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbcw8"]
+atlas = SubResource("CompressedTexture2D_82cs7")
+region = Rect2(63, 1510, 1324, 451)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h6wn"]
+atlas = SubResource("CompressedTexture2D_82cs7")
+region = Rect2(647, 616, 1239, 857)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5tmyk"]
+load_path = "res://.godot/imported/Mossy - BackgroundDecoration.png-26a568a8b23e799cc63371df73d514ea.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvcmc"]
+shader = ExtResource("1_rxh2h")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.72
+shader_parameter/maxStrength = 1.0
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.404
+shader_parameter/heightOffset = 0.7
+shader_parameter/offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8naom"]
+atlas = ExtResource("2_1ntor")
+region = Rect2(89, 1400, 465, 1374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr07j"]
+atlas = ExtResource("3_5d668")
+region = Rect2(1194, 46, 1034, 2344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsfsy"]
+atlas = ExtResource("4_lfpip")
+region = Rect2(2893, 9, 1053, 915)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bb4r5"]
+shader = ExtResource("5_27iqn")
+shader_parameter/blur_type = 0
+shader_parameter/blur_amount = 5
+shader_parameter/blur_radius = 1.0
+shader_parameter/blur_direction = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02qie"]
+shader = ExtResource("7_8jnbv")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[node name="CanvasLayer2" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="background" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.611765)
+material = SubResource("CanvasItemMaterial_fspi5")
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D2" type="Sprite2D" parent="background"]
+position = Vector2(7094.29, 2048.57)
+texture = SubResource("AtlasTexture_dbcw8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="background"]
+position = Vector2(896, 0)
+texture = SubResource("AtlasTexture_3h6wn")
+
+[node name="Sprite2D7" type="Sprite2D" parent="background"]
+position = Vector2(1097.14, 2011.43)
+scale = Vector2(1.14286, 1.14286)
+texture = SubResource("CompressedTexture2D_5tmyk")
+region_enabled = true
+region_rect = Rect2(2384, 1410, 1682, 910)
+
+[node name="Sprite2D12" type="Sprite2D" parent="background"]
+material = SubResource("ShaderMaterial_yvcmc")
+position = Vector2(2098.57, 325.714)
+scale = Vector2(0.714286, 0.714286)
+texture = SubResource("AtlasTexture_8naom")
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+position = Vector2(3934.29, -395.714)
+texture = SubResource("AtlasTexture_yr07j")
+
+[node name="Sprite2D13" type="Sprite2D" parent="background"]
+position = Vector2(1127.14, 1974.29)
+scale = Vector2(0.714286, 0.714286)
+texture = SubResource("AtlasTexture_dsfsy")
+
+[node name="BlurBackground3" type="Sprite2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+material = SubResource("ShaderMaterial_bb4r5")
+position = Vector2(2067, 467.001)
+scale = Vector2(40.7911, 24.2933)
+texture = ExtResource("6_m4r5j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_02qie")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -510.0
+offset_top = -955.0
+offset_right = 2194.0
+offset_bottom = 686.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.633488, 0.810492)

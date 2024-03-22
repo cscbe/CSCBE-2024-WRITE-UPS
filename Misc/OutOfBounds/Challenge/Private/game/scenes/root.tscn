@@ -1,0 +1,273 @@
+[gd_scene load_steps=31 format=3 uid="uid://bvlq1faug3pka"]
+
+[ext_resource type="Script" path="res://scenes/root.gd" id="1_vpyqj"]
+[ext_resource type="PackedScene" uid="uid://2hqbuj6yvs85" path="res://objects/Player.tscn" id="2_lwwva"]
+[ext_resource type="Texture2D" uid="uid://b68jnlkuunlc2" path="res://assets/image.axd.png" id="3_odc6d"]
+[ext_resource type="Texture2D" uid="uid://ck6f4yksbe1xg" path="res://assets/white.png" id="4_iabqx"]
+[ext_resource type="PackedScene" uid="uid://b517oe2bplp3e" path="res://objects/canvas_layer_background_2.tscn" id="4_nvxr5"]
+[ext_resource type="PackedScene" uid="uid://lm2ou1of0n7v" path="res://objects/canvas_layer_background_1.tscn" id="5_qtaef"]
+[ext_resource type="Texture2D" uid="uid://cqvmjsghipjmf" path="res://assets/Mossy_Tileset/Mossy - Decorations&Hazards.png" id="7_c1f32"]
+[ext_resource type="Script" path="res://scenes/dissapearing_tree.gd" id="10_2fk5q"]
+[ext_resource type="PackedScene" uid="uid://c8nfudkoquxmk" path="res://objects/Monster.tscn" id="10_epggp"]
+[ext_resource type="Material" uid="uid://dkietswcoe04l" path="res://scenes/gras_sway_material.tres" id="10_i6msk"]
+[ext_resource type="Script" path="res://scenes/UI.gd" id="11_1cxvq"]
+[ext_resource type="PackedScene" uid="uid://ck1mh324wkusr" path="res://objects/tile_map.tscn" id="11_hujx6"]
+[ext_resource type="PackedScene" uid="uid://b136tf5akyq78" path="res://objects/main_audio.tscn" id="13_nwl3f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8krsw"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bfvtw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g8bpd"]
+gradient = SubResource("Gradient_bfvtw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjs3h"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(233, 192, 1283, 706)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqfoa"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(2113, 2566, 412, 1465)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo70f"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(657, 2626, 273, 378)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unab1"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(618, 3180, 299, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvj7o"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(575, 3573, 254, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvq11"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(1729, 2741, 133, 174)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh670"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(87, 3077, 335, 440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktvn7"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(1600, 3619, 365, 398)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gply1"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(1426, 2936, 138, 174)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyuql"]
+atlas = ExtResource("7_c1f32")
+region = Rect2(1604, 401, 1140, 512)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_byhx2"]
+
+[sub_resource type="Animation" id="Animation_d1ovq"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f033h"]
+_data = {
+"fade_in": SubResource("Animation_d1ovq")
+}
+
+[sub_resource type="GDScript" id="GDScript_o2pve"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	print(\"test\")
+	
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_vpyqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0509804, 0.262745, 0.262745, 1)
+position = Vector2(1480, 549)
+scale = Vector2(184.978, 137.187)
+texture = ExtResource("4_iabqx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[node name="backgroundWhiteCircle" type="Sprite2D" parent="."]
+modulate = Color(0.686275, 0.996078, 1, 0.862745)
+material = SubResource("CanvasItemMaterial_8krsw")
+position = Vector2(1905, 368)
+scale = Vector2(195.703, 15.83)
+texture = ExtResource("3_odc6d")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_nvxr5")]
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("5_qtaef")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2117.5, 565)
+scale = Vector2(23.037, 7.87311)
+color = Color(0.694118, 1, 1, 1)
+energy = 0.3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_g8bpd")
+texture_scale = 7.14
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="decoration" type="Node2D" parent="CanvasLayer3"]
+position = Vector2(-384, 768)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D11" type="Sprite2D" parent="CanvasLayer3/decoration"]
+position = Vector2(4016, 366)
+texture = SubResource("AtlasTexture_bjs3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer3/decoration"]
+position = Vector2(642, -286)
+texture = SubResource("AtlasTexture_jqfoa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer3/decoration/Sprite2D"]
+script = ExtResource("10_2fk5q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer3/decoration/Sprite2D/StaticBody2D"]
+polygon = PackedVector2Array(48, -152, 166, 534, 4, 532, -162, -304, -14, -330)
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer3/decoration"]
+material = ExtResource("10_i6msk")
+position = Vector2(3840, 416)
+texture = SubResource("AtlasTexture_lo70f")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer3/decoration"]
+material = ExtResource("10_i6msk")
+position = Vector2(1504, 478)
+texture = SubResource("AtlasTexture_unab1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer3/decoration"]
+material = ExtResource("10_i6msk")
+position = Vector2(2528, -6.10352e-05)
+texture = SubResource("AtlasTexture_hvj7o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer3/decoration"]
+material = ExtResource("10_i6msk")
+position = Vector2(2776, 110)
+texture = SubResource("AtlasTexture_cvq11")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer3/decoration"]
+position = Vector2(1056, -28.0001)
+texture = SubResource("AtlasTexture_xh670")
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer3/decoration"]
+position = Vector2(5234, 490)
+texture = SubResource("AtlasTexture_ktvn7")
+
+[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer3/decoration"]
+material = ExtResource("10_i6msk")
+position = Vector2(2198, 132)
+texture = SubResource("AtlasTexture_gply1")
+
+[node name="Sprite2D10" type="Sprite2D" parent="CanvasLayer3/decoration"]
+position = Vector2(2802, 1236)
+texture = SubResource("AtlasTexture_tyuql")
+
+[node name="Player" parent="CanvasLayer3" instance=ExtResource("2_lwwva")]
+position = Vector2(960, 648)
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer3"]
+
+[node name="Monster" parent="CanvasLayer3/Node2D" instance=ExtResource("10_epggp")]
+position = Vector2(2487, 1013)
+frame_progress = 0.513593
+
+[node name="Monster2" parent="CanvasLayer3/Node2D" instance=ExtResource("10_epggp")]
+position = Vector2(-279, 810)
+idx = 1
+
+[node name="Monster3" parent="CanvasLayer3/Node2D" instance=ExtResource("10_epggp")]
+position = Vector2(9.9998e+07, 810)
+idx = 2
+
+[node name="TileMap" parent="CanvasLayer3" instance=ExtResource("11_hujx6")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer3"]
+position = Vector2(2048, 3200)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer3/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_byhx2")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("11_1cxvq")
+
+[node name="Label" type="Label" parent="UI"]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 60
+text = "0 / 3"
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("13_nwl3f")]
+
+[node name="CanvasLayerSceneFade" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerSceneFade"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayerSceneFade"]
+libraries = {
+"": SubResource("AnimationLibrary_f033h")
+}
+
+[node name="StateVerification" type="Node2D" parent="."]
+script = SubResource("GDScript_o2pve")

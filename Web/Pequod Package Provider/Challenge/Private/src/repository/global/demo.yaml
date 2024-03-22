@@ -1,0 +1,12 @@
+name: "demo"
+author: "Ahab Ceely"
+version: "0.0.1"
+publisher: "Mocha Richard, LTD."
+
+actions:
+  - copy:
+      from: test.sh
+      to: /opt/demo/test.sh
+  - execute:
+      file: /opt/demo/test.sh
+      in: /opt/demo

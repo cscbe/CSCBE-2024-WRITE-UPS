@@ -1,0 +1,59 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Grandpa Hubert's grandson"
+author: "Julian Dotreppe"
+category: Cryptography
+description: |-
+  Hey everyone!
+
+  My grandson, Alex Robinson, asked me to write a small text for you all since you seem to enjoy our challenges. Did you know that Alex was born in the 2000s? He is still young but has already found a job. He is currently living in Anderlecht, which is quite annoying for me as it is far from my place. He doesn't come to visit me at home that often, but I'm okay with that as I have "Blopblop", my goldfish. Additionally, I sometimes go see Alex at his badminton club where his friends like to call him "Robyeye" because he always say yes for a game of badminton.
+
+  I hope you learned a bit more about me!
+
+  Regards,
+  Grandpa Hubert
+tags:
+  - Medium
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/hash.txt
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: ./Resources/exploit.(sh|py)
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - password cracking
+  - custom wordlists
+
+flags:
+  # A static case sensitive flag
+  - robyeye2000
+
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

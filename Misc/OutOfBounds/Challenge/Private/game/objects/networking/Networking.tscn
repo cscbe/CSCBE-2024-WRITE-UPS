@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5uwhud630o13"]
+
+[ext_resource type="Script" path="res://objects/networking/Networking.gd" id="1_ac5xx"]
+
+[node name="Networking" type="Node"]
+script = ExtResource("1_ac5xx")
+
+[node name="HTTPRequestGameHash" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestRegisterBlob" type="HTTPRequest" parent="."]

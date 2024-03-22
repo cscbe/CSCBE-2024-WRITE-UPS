@@ -1,0 +1,6 @@
+additionalproblems:
+  build: .
+  restart: unless-stopped
+
+  ports:
+    - "1340:1340"

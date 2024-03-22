@@ -1,0 +1,23 @@
+{
+    "name": "exploit",
+    "author": "Théo Davreux",
+    "version": "1.0.0",
+    "publisher": "Cybersecuritychallenge Belgium",
+    "actions": [],
+    "keys": [
+        {
+            "p": "4R63Uidv4oJXRTaJN9UYnt9zQJBj7yYoUgDM3XiOe5h2QjDnlGEAdrG7Bo3z4H4xkxvzNZM7vtdMw4GVr_TfDCy_x0NeepfrYEMHyURW8_21_oIXOry--dm1uyuXp-W9eSH8UxBvIs2-rbL030RftG26R_3cfjrPyT8YVHtlZc0",
+            "kty": "RSA",
+            "q": "1fQdIfXK_dyHu835FZS40MaY4PGzkWSPC3KWVLCZ_x7PQnsxFqmnWwNKJoqqYDKjfn36fQ1NY-ldhzzo6AZ1Z7xkXkLSi9gBwI4TVVzIYQ88GBYmK31EmgLRIZEu8ZfWs4y9k5BAi42cVc0Zsy8U3rscZhP8DXzfsHBrZqumSPc",
+            "d": "saWUKsRdSmrO--xw5Nxg_yI5IdGHVRmITTKlL2PQUgF0vU2DoTfzTQuLkJAjUsgbVVyh1qucelE_rAKo-84WSjxhcUFjtx3YnY1BeFuNaCgt7n0JNxvXX_t6jtk2P2LcYd40pF-dZm2jpKfRTbiexOKy-D9GmHyHjB-n_ITOANk5FQ2P_vwm8nJxZwNmyWR402T2w3FjPrENTXSNmtQ-r_kzH16X1Jya8exP7Bd7PVwwB3YxjDb7kKlphUqgwBec3p9LSkSNF8-CpM9LCV-qhR16xqUjtVCynY7rFo0NKVe7pDC-fNnQTKcYf4TnBbHN_OegIEXnIpb78xjRSnR9wQ",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "mykey",
+            "qi": "yYpiBrB7Zqr08DZsAhVDXeUmF3Wbm3PT_IGyJgI9O1LgxWTIJWCSGRVyzt-pzU2lK_OotO4pqqDC_wwz3ZGuo6jNE_ZNVfnJIfpTHce-hQKfTEkp8YK8BH8xlrOoKj77Pwnh-ev5Jt9eWauq2mknEkG3ABvtam7yauemI_RUpLU",
+            "dp": "1lZmeKPv1RwAd3erQit0W5-onipb29DaxujYJW2pS2goAHGLrCyHQnuJ9H2nW3ELRmNwNuxOEC_xeJuip3tf-rmIhvJPvC10_5wSh8C3gWtooj--WkBnHH_6lZC1vjfxJKoFEhktl1eJWtxuZT02WhW3LOA51T2tpJCcW6N5MWk",
+            "alg": "RS256",
+            "dq": "rYfwdRHpkZtjj-SQqXtVpyfc6V3AuiUojC1lVs1iKfUwP4ixmOMDdSMm6jm_1IRd7QN6viCi621kyYKSmVZbtUas1XM3V-tcCHRzo-G8OFTl9ddJIC7bDFtKigI6ZAM2RazaOixe3ZF_Amx28sk2ES0L7JM69SmaOH4F7mE8XqM",
+            "n": "vCU5bGz8hRSobAHoCyzep0g3nlgCA2Egfs3ecuGmRFFx4Rjs5e9WkUm9uZ6UnVIrnEfZSn0_3gileGGFvGFgxmPu2KkCplk5_7F90oNqjWkbIirsuNSrr7hbY3hTgSV7Cd-XsOrb2clM5Gl4MhUqyIDo2EK3poU-869UBAZEANS2TiIE5XJe02izWLnUM4268TMxh0neiSU6bbxWRCwgUHDaqKlULVNjfYO-fW1VZV7OCKDaL-k_HVsAkeXYmNY1-u5fe3e3WuVk0ISpxOCp9l-8ZCVZGPgPTbCABi8ZmYhHzfy7wgxwMhT4V036hD0WagdJQgalgGglkDmlhWTgyw"
+        }
+    ]
+}

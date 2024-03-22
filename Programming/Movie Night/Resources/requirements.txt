@@ -1,0 +1,4 @@
+pillow
+qrcode
+imageio
+pyzbar

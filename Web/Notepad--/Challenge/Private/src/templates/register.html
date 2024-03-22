@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <form class="w-50 center" action="{{ url_for('register') }}" method="POST">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="username">Username</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="username">@</span>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupPrepend" required>
+            </div>
+        </div>
+    
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="dish">Favorite Dish</label>
+            <input type="text" id="dish" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    
+        <div class="text-center">
+            <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}

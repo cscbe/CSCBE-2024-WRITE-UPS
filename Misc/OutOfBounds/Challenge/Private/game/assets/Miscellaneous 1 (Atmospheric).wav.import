@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8y2sfrhv5y2q"
+path="res://.godot/imported/Miscellaneous 1 (Atmospheric).wav-a090c21acf1d635f5b800261e98e97e7.sample"
+
+[deps]
+
+source_file="res://assets/Miscellaneous 1 (Atmospheric).wav"
+dest_files=["res://.godot/imported/Miscellaneous 1 (Atmospheric).wav-a090c21acf1d635f5b800261e98e97e7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

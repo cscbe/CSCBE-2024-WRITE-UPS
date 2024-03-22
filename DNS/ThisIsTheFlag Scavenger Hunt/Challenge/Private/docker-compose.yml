@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  thisistheflag_be_authoritative:
+    restart: unless-stopped
+    build: .    
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+    ports:
+    - "53:53/udp"
+    - "53:53/tcp"
+    - "22:22/tcp"
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1      

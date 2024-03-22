@@ -1,0 +1,54 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+## START ALLOWED TO EDIT ##
+name: "Learning on the job"
+author: "Julian Dotreppe"
+category: Reversing
+description: |-
+          Today is my first day in a big corp, I've started working at Lazarus Group(aka APT38).
+          For my first day, my employer asked me to generate a keygen for the CSCBE so we can easily win the competition.
+          It didn't work for me, hope it will for you 😉
+tags:
+  - Easy
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: null
+
+# OPTIONAL
+# Provide paths to files that need to be share with the contestants, for example, source code.
+files:
+  - Challenge/Public/learning_on_the_job.zip
+
+# healthcheck is a tool/script used to check a challenge
+# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
+# ./Ressources//exploit.sh --connection-info "nc hostname 12345"
+healthcheck: null
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are only visible to admins
+# Accepts strings
+topics:
+  - reverse engineering
+  - binary patching
+  - .NET
+
+flags:
+  # A static case sensitive flag
+  - CSC{g00d_j0b_youR_p4tching_impresses_m3}
+
+## START DON'T EDIT ##
+value: 100
+type: dynamic
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+image: null
+host: null
+state: hidden
+version: "0.1"
+## END DON'T EDIT ##
+

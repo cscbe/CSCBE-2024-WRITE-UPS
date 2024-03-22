@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{repo.name}}
+{% endblock %}
+
+{% block style %}
+<style>
+    /*
+ * Globals
+ */
+
+
+    /* Custom default button */
+    .btn-light,
+    .btn-light:hover,
+    .btn-light:focus {
+        color: #333;
+        text-shadow: none;
+        /* Prevent inheritance from `body` */
+    }
+
+
+    /*
+ * Base structure
+ */
+
+    body {
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cover-container {
+        max-width: 64em;
+    }
+
+    .quote-container {
+        max-width: 42em;
+    }
+
+
+    /*
+ * Header
+ */
+
+    .nav-masthead .nav-link {
+        color: rgba(255, 255, 255, .5);
+        border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link+.nav-link {
+        margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+    .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+    }
+
+    .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+    }
+
+    .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+        z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<body class="d-flex h-100 text-center text-bg-dark">
+    <script>
+        class Completer {
+            promise;
+            complete;
+            reject;
+
+            constructor() {
+                this.promise = new Promise((resolve, reject) => {
+                    this.complete = resolve;
+                    this.reject = reject;
+                })
+            }
+        }
+
+        let modalCompleter = null;
+        async function deletePackage(name) {
+            modalCompleter = new Completer();
+            document.getElementById("packagename").textContent = name
+            let dlm = new bootstrap.Modal('#deleteModal')
+            dlm.show()
+
+            decision = await modalCompleter.promise;
+            dlm.hide()
+
+            if (decision) {
+                await fetch("/api/packages/{{repo.id}}/" + name, {
+                    method: "DELETE"
+                })
+
+                document.location.reload()
+            }
+        }
+
+        function downloadPackage(name) {
+            window.open("/api/packages/{{repo.id}}/" + name, '_self');
+        }
+
+        async function uploadPackage(event) {
+            event.preventDefault()
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.click()
+            input.addEventListener('change', function (e) {
+                let file = e.target.files[0]
+                let reader = new FileReader()
+                reader.addEventListener("loadend", async (event) => {
+                    req = new XMLHttpRequest()
+                    req.addEventListener("readystatechange", (event) => {
+                        if (req.readyState === XMLHttpRequest.DONE) {
+                            document.location.reload()
+                        }
+                    })
+                    req.open("POST", "/api/packages/{{ repo.id }}", false)
+                    req.send(reader.result)
+
+                })
+                reader.readAsArrayBuffer(file)
+                console.log(file)
+            })
+        }
+
+        async function unshareWith(id) {
+            let form = new FormData()
+            form.append("user_id", id)
+            await fetch("/api/packages/{{repo.id}}/share", {
+                method:"DELETE",
+                body: form,
+            })
+            window.location.reload()
+        }
+
+        function copyID() {
+            navigator.clipboard.writeText("{{current_user.id}}")
+        }
+
+    </script>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" data-bs-theme="dark">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Pequod Package Provider</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+                    {% if current_user %}
+                    {% if current_user.username == "admin" %}
+                    <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/admin">Admin</a>
+                    {% endif %}
+                    <div class="dropdown py-1 px-0" style="margin-left: 16px;" data-bs-theme="dark">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="rounded-circle text-bg-primary"
+                                style="width: 30px;height:30px;display:inline-block">{{ current_user.username.0
+                                }}</span>
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="javascript:copyID()">Click to copy ID</a></li>
+                            <li><a class="dropdown-item" href="/user">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <a class="nav-link fw-bold py-1 px-0" href="/login">Login</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="/signup">Sign Up</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </header>
+
+        <div style="display: flex; justify-content: center;">
+            <a class="btn" href="/" role="button" data-toggle="tooltip" title="Go Back Home">
+                &#x3C;
+            </a>
+                    <h3>Packages in {{repo.name}}</h3>
+        </div>
+        <table class="table">
+            <thead>
+                <th scope="col">Name</th>
+                <th scope="col">Version</th>
+                <th scope="col">Author</th>
+                <th scope="col">Publisher</th>
+                <th scope="col">Size</th>
+                <th scope="col" style="width: 200px">Actions</th>
+            </thead>
+            <tbody>
+                {% for package in packages %}
+                <tr>
+                    <th scope="row">{{ package.name }}</th>
+                    <td>{{ package.version }}</td>
+                    <td>{{ package.author }}</td>
+                    <td>{{ package.publisher }}</td>
+                    <td>{{ package.size }} bytes</td>
+                    <td>
+                        <button onclick="downloadPackage('{{package.name}}')" class="btn btn-primary btn-sm" name="foo"
+                            value="upvote">Download</button>
+                            {% if repo.owner.id == current_user.id %}
+                        <button onclick="deletePackage('{{package.name}}')" class="btn btn-danger btn-sm" name="foo"
+                            value="upvote">Delete</button>
+                            {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% if repo.owner.id == current_user.id %}
+                <tr>
+                    <td colspan="6">
+                        <form onsubmit="uploadPackage(event)">
+                            <button class="btn btn-success" name="foo" value="upvote">+ Upload Package</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        {% if repo.owner.id == current_user.id %}
+        <h4>Repository is shared with</h4>
+        <table class="table">
+            <thead>
+                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">Actions</th>
+            </thead>
+            <tbody>
+                
+                {% for guest in repo.guests %}
+                <tr>
+                <td>{{guest.guest.username}}</td>
+                <td>{{guest.guest.id}}</td>
+                <td>
+                    <button onclick="unshareWith('{{guest.guest.id}}')" class="btn btn-primary btn-sm" {% if guest.guest.username == "admin" %}disabled{% endif %} name="foo"
+                        value="unshare">Unshare</button>
+                </td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <footer class="mt-auto text-white-50">
+            <p>Based on the Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by
+                <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.
+            </p>
+        </footer>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Package</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete <code id="packagename"></code>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="modalCompleter.complete(false)">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="modalCompleter.complete(true)">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock %}

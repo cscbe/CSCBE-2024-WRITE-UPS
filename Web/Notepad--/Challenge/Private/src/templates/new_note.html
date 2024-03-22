@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <form class="w-50 center" action="{{ url_for('new_note') }}" method="post">
+        <div class="page-header d-flex justify-content-center">
+            <h1>New Note</h1>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="title">Title</label>
+            <input type="text" id="title" name="title" class="form-control" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="content">Content</label>
+            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
+    </form>
+</div>
+{% endblock %}

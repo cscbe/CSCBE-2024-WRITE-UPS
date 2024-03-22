@@ -1,0 +1,5 @@
+Flask
+Flask-Login
+SQLAlchemy
+gunicorn
+pytest-playwright

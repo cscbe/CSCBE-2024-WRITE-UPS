@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row align-self-center align-items-center" style="margin-top: 30vh;">
+    <div class="col">
+      <div class="d-flex justify-content-end">
+        <img src="{{ url_for('static', filename='logo.svg') }}" height="200px" width="200px">
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <h1 class="display-1">ShadowNet</h1>
+      </div>
+      <div class="row">
+        <h4>Illuminating the Dark Frontiers of Tomorrow.</h4>
+      </div>
+    </div>
+  </div>
+{% endblock %}

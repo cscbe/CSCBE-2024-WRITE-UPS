@@ -1,0 +1,187 @@
+<script>
+    class Completer {
+        promise;
+        complete;
+        reject;
+
+        constructor() {
+            this.promise = new Promise((resolve, reject) => {
+                this.complete = resolve;
+                this.reject = reject;
+            })
+        }
+    }
+
+    let modalCompleter = null;
+
+    async function createRepository(e)  {
+        e.preventDefault()
+        let formdata = new FormData();
+        let repoNameField = document.getElementById("name");
+        if(repoNameField) {
+            formdata.append("name", repoNameField.value)
+            repoNameField.value = ""
+        }
+        await fetch("/api/packages", {
+            method: "POST",
+            body: formdata,
+        })
+        document.location.reload()
+    }
+
+    async function deleteRepository(id,name) {
+        console.log(id,name)
+        modalCompleter = new Completer();
+        document.getElementById("reponame").textContent = name
+        let dlm = new bootstrap.Modal('#deleteModal')
+        dlm.show()
+
+        decision = await modalCompleter.promise;
+        dlm.hide()
+
+        if(decision) {
+            await fetch("/api/packages/"+id, {
+                method: "DELETE"
+            })
+
+            document.location.reload()
+        }
+    }
+
+    async function shareRepository(id,name) {
+        console.log(id,name)
+        modalCompleter = new Completer();
+        document.getElementById("shreponame").textContent = name
+        let dlm = new bootstrap.Modal('#shareModal')
+        dlm.show()
+
+        let decision = await modalCompleter.promise;
+        dlm.hide()
+
+        if(decision) {
+            let target_id = document.getElementById("share_target")
+            let form = new FormData()
+            form.append("user_id", target_id.value)
+            await fetch("/api/packages/"+id+"/share", {
+                method: "POST",
+                body: form,
+            })
+
+            document.location.reload()
+        }
+    }
+
+    function viewDetails(id) {
+        document.location = "/repository/"+id
+    }
+</script>
+<main style="display:flex; align-items: start;width:90%" data-bs-theme="dark">
+    <h3>Your Repositories</h3>
+    <table class="table">
+        <thead>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Owner</th>
+            <th scope="col" style="width: 200px">Actions</th>
+        </thead>
+        <tbody>
+            {% for repo in repos.owned %}
+            <tr>
+                <th data-toggle="tooltip" title="{{repo.id}}" scope="row">{{ repo.id | truncate(11)}}</th>
+                <td data-toggle="tooltip" title="{{repo.name}}">{{ repo.name }}</td>
+                <td>{{ repo.owner.username }}</td>
+                <td>
+                    <button onclick="viewDetails('{{repo.id}}')" class="btn btn-primary btn-sm" name="foo" value="upvote">Details</button>
+                    <button onclick="shareRepository('{{repo.id}}','{{repo.name}}')" class="btn btn-success btn-sm" name="foo" value="upvote">Share</button>
+                    <button onclick="deleteRepository('{{repo.id}}','{{repo.name}}')" class="btn btn-danger btn-sm" name="foo" value="upvote">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">
+                    <form onsubmit="createRepository(event)" style="display: flex; flex-direction: row; justify-content: center;">
+                        <div class="form">
+                            <input type="text" style="width:300px" class="form-control" name="name" id="name" placeholder="Repository Name (blank for random)">
+                        </div>
+                        <button class="btn btn-success" name="foo" value="upvote">+ Add Repository</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 style="padding-top:32px">Repositories shared with You</h3>
+    <table class="table">
+        <thead>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Owner</th>
+            <th scope="col" style="width: 200px">Actions</th>
+        </thead>
+        <tbody>
+            {% for repo in repos.shared_with %}
+            <tr>
+                <th scope="row">{{ repo.id }}</th>
+                <td>{{ repo.name }}</td>
+                <td>{{ repo.owner.username }}</td>
+                <td>
+                    <button onclick="viewDetails('{{repo.id}}')" class="btn btn-primary btn-sm" name="foo" value="upvote">Details</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3 style="padding-top:32px">Global Repository</h3>
+    <table class="table">
+        <thead>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Owner</th>
+            <th scope="col" style="width: 200px">Actions</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ repos.global.id }}</th>
+                <td>{{ repos.global.name }}</td>
+                <td>{{ repos.global.owner.username }}</td>
+                <td>
+                    <button onclick="viewDetails('{{repos.global.id}}')" class="btn btn-primary btn-sm" name="foo" value="upvote">Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<div class="modal fade" id="deleteModal" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="deleteModalLabel" aria-hidden="true" data-bs-theme="dark">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Repository</h5>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete <code id="reponame"></code>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="modalCompleter.complete(false)">Close</button>
+          <button type="button" class="btn btn-primary" onclick="modalCompleter.complete(true)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="shareModal" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="shareModalLabel" aria-hidden="true" data-bs-theme="dark">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shareModalLabel">Share Repository</h5>
+        </div>
+        <div class="modal-body">
+          Who do you want to share <code id="shreponame"></code> with?
+          <input type="text" style="width:300px" class="form-control" name="share_target" id="share_target" placeholder="Target User ID">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="modalCompleter.complete(false)">Close</button>
+          <button type="button" class="btn btn-primary" onclick="modalCompleter.complete(true)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
