@@ -82,6 +82,8 @@ Enjoy and see you next year!
 Note that all the challenge that are ~~stricken through~~ do not have proper write-ups **YET**
 
 ### ❤️ With love by the CSCBE team ❤️
-|||||
+
+| 🐼 Jeroen | 🥷Julian | 👒Théo | 🐈 Maxime|
 |-|-|-|-|
-| 🐼 Jeroen | 🥷Julian | 👒Théo | 🐈Maxime|
+|||||
+
