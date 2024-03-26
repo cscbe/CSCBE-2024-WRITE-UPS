@@ -46,7 +46,6 @@ Enjoy and see you next year!
 |Online Qualifiers|Paranoid|Programming|⭐️⭐️⭐️|51|Arno Vermote|
 |Online Qualifiers|Puzzle|Programming|⭐️⭐️⭐️|84|Julien Pepinster|
 |Online Qualifiers|Learning on the job|Reverse engineering|⭐️⭐️|91|Julian Dotreppe|
-|Online Qualifiers|Wasp|Reverse engineering|⭐️⭐️|0|Julian Dotreppe|
 |Online Qualifiers|Shapeshifter 1|Reverse engineering|⭐️⭐️⭐️|14|Alex Van Mechelen|
 |Online Qualifiers|Sili-con Carne|Reverse engineering|⭐️⭐️⭐️⭐️|3|Théo Davreux|
 |Online Qualifiers|Gibson|Web|⭐️|184|Jeroen Beckers|
@@ -54,8 +53,7 @@ Enjoy and see you next year!
 |Online Qualifiers|Quantum Eye|Web|⭐️⭐️|29|Julien Pepinster & Yannis Kireche|
 |Online Qualifiers|Notepad--|Web|⭐️⭐️⭐️|9|Julien Pepinster|
 |Online Qualifiers|ParticlePloy|Web|⭐️⭐️⭐️|21|Maxime Bloch|
-|Finals|Blockchain|Crypto|⭐️⭐️|1|Romain Jennes|
-|Finals|Forever remembered - missed|Crypto|⭐️⭐️|37|Kenzo Staelens|
+|Finals|Blockchain|Crypto|⭐️⭐️|1|Romain Jennes||Finals|Forever remembered - missed|Crypto|⭐️⭐️|37|Kenzo Staelens|
 |Finals|Grandma Mireille's final vault|Crypto|⭐️⭐️⭐️|0|Sander Van Dessel|
 |Finals|ThisIsTheFlag Scavenger Hunt|DNS|⭐️⭐️|7|DNS Belgium|
 |Finals|Unbeatable Tic Tac Toe|Exploitation|⭐️⭐️|5|Alex Van Mechelen|
