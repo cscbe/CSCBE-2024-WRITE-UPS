@@ -16,7 +16,7 @@ services:
       - ./web/:/usr/src/app/
 
   llamacpp:
-    image: ghcr.io/ggerganov/llama.cpp:server
+    image: ghcr.io/ggerganov/llama.cpp:server--b1-97bdd26
     command: -m /models/mistral-7b-instruct-v0.2.Q4_K_S.gguf -c 2048 --host 0.0.0.0 --port 8081 -cb --timeout 30 --parallel 2 -spf /models/systemPrompt.json
     expose:
       - 8081
