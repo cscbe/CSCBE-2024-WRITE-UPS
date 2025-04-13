@@ -66,7 +66,8 @@ String lowerCase = "FMGARDIOFIADLEZAGAUHOXHCAEPTSBLBNHONMOWSEWROOCROCPKAIFIAKARR
                 i++;
             }
         }
-		```
+
+```
 The code loops over all the words, and loops over the long `lowerCase` string and calls the l function on each position + string, along with different values for 0/1/-1.
 
 The l function looks like this:
